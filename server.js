@@ -20,11 +20,11 @@ const skateboardScenery = {
 }
 
 
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
     res.json(skateboardScenery);
 })
 
-app.get('/api:index', (req, res) => {
+app.get('/:index', (req, res) => {
     const i= req.params.index;
     res.json(skateboardScenery[i])
 })
