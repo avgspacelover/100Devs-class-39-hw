@@ -2,13 +2,15 @@ const imageDiv = document.querySelector('#image-div');
 const btn = document.getElementById('btn');
 
 const image = document.createElement('img');
-image.alt= "skateboard scenenries";
 
+image.id = "ftchimg"
 
 async function getLink(){
     const index= Math.floor(Math.random()*(10-0) + 0)
-    const imageLink = await fetch(`dummyCode/${index}`);
-    image.src = imageLink;
+    const imageData = await fetch(`https://ant-skateboard-scenery.herokuapp.com/${index}`);
+    const imageLink = await imageData.json()
+    image.src = imageLink.url;
+    image.alt= `${imageLink}`
 }
 
 btn.addEventListener('click', ()=> {
